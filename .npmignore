@@ -1,5 +1,5 @@
+
+.gitlab-ci.yml
 .reify-cache
-build
-dist
 node_modules
 

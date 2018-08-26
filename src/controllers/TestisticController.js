@@ -1,5 +1,5 @@
 import Repository from 'testistic-repository'
-import Testistic from 'testistic-base'
+import Testistic from 'testistic-model'
 
 import Debug from 'debug'
 const debug = Debug('testistic-api')

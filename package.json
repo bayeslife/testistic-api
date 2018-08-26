@@ -17,7 +17,8 @@
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
-    "reify": "^0.16.4"
+    "reify": "^0.16.4",
+    "testistic-repository": "^1.0.2"
   },
   "devDependencies": {
     "eslint": "^5.2.0",
