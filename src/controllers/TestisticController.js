@@ -6,7 +6,6 @@ const debug = Debug('testistic-api')
 
 function create (options) {
   var repository = Repository.create(options.kafkaHost)
-  debug('Repo', repository)
   return {
     createProject: async function (project) {
       debug('Creating project', project)
@@ -34,6 +33,10 @@ function create (options) {
     },
     getTestRuns: async function (epic) {
       let testruns = await repository.getTestRuns()
+      return testruns
+    },
+    getProjectTestRuns: async function (project) {
+      let testruns = await repository.getProjectTestRuns(project)
       return testruns
     }
   }

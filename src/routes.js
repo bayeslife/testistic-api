@@ -50,8 +50,11 @@ function setup (app, testistic/* controller */, authentication/* controller */) 
   app.get('/testruns', async (req, res) => {
       let result = await testisticController.getTestRuns()
       res.send(result)
-    }
-  )
+    })
+  app.get('/testruns/projects/:project', async (req, res) => {
+    let result = await testisticController.getProjectTestRuns(req.params.project)
+    res.send(result)
+  })
 
   app.post('/login', (req, res) => authenticationController.logIn(req, res))
 }

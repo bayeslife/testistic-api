@@ -1,6 +1,6 @@
 {
   "name": "testistic-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "API services to support test statistics presentation",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
     "reify": "^0.16.4",
-    "testistic-repository": "^1.0.2"
+    "testistic-repository": "latest"
   },
   "devDependencies": {
     "eslint": "^5.2.0",
