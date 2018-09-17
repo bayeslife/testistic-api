@@ -1,6 +1,8 @@
 import Repository from 'testistic-repository'
 import Testistic from 'testistic-model'
 
+import pkg from '../../package.json'
+
 import Debug from 'debug'
 const debug = Debug('testistic-api')
 
@@ -8,6 +10,12 @@ function create (options) {
   debug(`Creating repository with kafkaUrl:${options.kafkaUrl}`)
   var repository = Repository.create(options)
   return {
+    getHealth: function (epic) {
+      return {
+        version: pkg.version,
+        name: pkg.name
+      }
+    },
     createProject: async function (project) {
       debug('Creating project', project)
       var newproject = Testistic.Project.createFrom(project)

@@ -38,6 +38,12 @@ function setup (app, testistic/* controller */, authentication/* controller */) 
   testisticController = testistic
   authenticationController = authentication
 
+  app.get('/health', async (req, res) => {
+    let result = await testisticController.getHealth()
+    res.send(result)
+    }
+  )
+
   app.post('/projects', validateProject, createProject)
   app.get('/projects', async (req, res) => {
     let result = await testisticController.getProjects()
