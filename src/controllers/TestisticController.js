@@ -5,7 +5,8 @@ import Debug from 'debug'
 const debug = Debug('testistic-api')
 
 function create (options) {
-  var repository = Repository.create(options.kafkaHost)
+  debug(`Creating repository with kafkaUrl:${options.kafkaUrl}`)
+  var repository = Repository.create(options)
   return {
     createProject: async function (project) {
       debug('Creating project', project)

@@ -10,7 +10,7 @@ import Debug from 'debug'
 const debug = Debug('testistic-repository')
 
 var testisticController = TestisticController.create({
-    kafkaHost: process.env.KAFKA_HOST + ':9092' || '192.168.56.10:9092'
+    kafkaUrl: process.env.KAFKASERVICE || '192.168.56.10:9092'
 })
 
 const app = express()

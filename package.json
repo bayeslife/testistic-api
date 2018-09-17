@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "start": "nodemon -w node_modules/testistic-base -w node_modules/testistic-repository  -w src -w tests -x 'npm run test && npm run lint && DEBUG=kafka-client,testistic-api,testistic-repository node -r reify src/index.js'",
+    "start": "nodemon -w node_modules/testistic-base -w node_modules/testistic-repository  -w src -w tests -x 'npm run test && npm run lint && DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify src/index.js'",
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "test": "mocha -r reify -r source-map-support/register tests/*.spec.js"
   },
@@ -18,7 +18,7 @@
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
     "reify": "^0.16.4",
-    "testistic-repository": "latest"
+    "testistic-repository": "^1.0.10"
   },
   "devDependencies": {
     "eslint": "^5.2.0",
