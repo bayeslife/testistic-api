@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "start": "nodemon -w node_modules/testistic-base -w node_modules/testistic-repository  -w src -w tests -x 'npm run test && npm run lint && DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify src/index.js'",
+    "start:watch": "nodemon -w node_modules/testistic-base -w node_modules/testistic-repository  -w src -w tests -x 'npm run test && npm run lint && DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify src/index.js'",
+    "start": "DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify src/index.js",
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "test": "mocha -r reify -r source-map-support/register tests/*.spec.js"
   },
