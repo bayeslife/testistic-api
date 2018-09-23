@@ -1,9 +1,10 @@
 {
   "name": "testistic-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "API services to support test statistics presentation",
   "main": "index.js",
   "scripts": {
+    "docker": "docker build -t gcr.io/testistic-216703/testistic-api .",
     "build": "rollup -c",
     "start:watch": "nodemon -w node_modules/testistic-base -w node_modules/testistic-repository  -w src -w tests -x 'npm run test && npm run lint && DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify src/index.js'",
     "start": "DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify src/index.js",
