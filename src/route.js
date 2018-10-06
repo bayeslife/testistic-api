@@ -1,8 +1,10 @@
+import entityLogic from './utilities/entity.js'
 import Debug from 'debug'
 const debug = Debug('testistic-repository')
 
 let testisticController
 let authenticationController
+let produceController
 
 function createTestRun (req, res) {
   res.send(testisticController.createTestRun(req.body))
@@ -34,9 +36,10 @@ function validateProject (req, res, next) {
   }
 }
 
-function setup (app, testistic/* controller */, authentication/* controller */) {
+function setup (app, testistic/* controller */, authentication/* controller */, produce /* controller */) {
   testisticController = testistic
   authenticationController = authentication
+  produceController = produce
 
   app.get('/health', async (req, res) => {
     let result = await testisticController.getHealth()
@@ -63,6 +66,25 @@ function setup (app, testistic/* controller */, authentication/* controller */) 
   })
 
   app.post('/login', (req, res) => authenticationController.logIn(req, res))
+
+  // catch all
+  app.post(/.*/, function (req, res) {
+    if (!(req.headers['content-type'] === 'application/json')) {
+      res.sendStatus(404)
+    } else {
+      var entityType = entityLogic.deriveType(req.path)
+      debug(`${entityType}`)
+      var entity = produceController.produce(entityType, req.body)
+      res.send(entity)
+    }
+  })
+
+  app.get(/.*/, async function (req, res) {
+      var entityType = entityLogic.deriveType(req.path)
+      debug(`${entityType}`)
+      var entities = await produceController.get(entityType)
+      res.send(entities)
+  })
 }
 
 function setTestisticController (controller) {

@@ -1,4 +1,3 @@
-import Repository from 'testistic-repository'
 import Testistic from 'testistic-model'
 
 import pkg from '../../package.json'
@@ -6,9 +5,7 @@ import pkg from '../../package.json'
 import Debug from 'debug'
 const debug = Debug('testistic-api')
 
-function create (options) {
-  debug(`Creating repository with kafkaUrl:${options.kafkaUrl}`)
-  var repository = Repository.create(options)
+function create (repository) {
   return {
     getHealth: function (epic) {
       return {
