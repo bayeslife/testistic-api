@@ -11,7 +11,7 @@ function create (repository) {
     },
     get: async function (entitytype) {
       debug(`Get entities of type: ${entitytype}`)
-      var results = await repository.get(entitytype, 100)
+      var results = await repository.get(entitytype, 20)
       debug(`Results: ${results.length}`)
       return results
     }
