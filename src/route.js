@@ -6,16 +6,37 @@ let testisticController
 let authenticationController
 let produceController
 
+function validateTestRuns (req, res, next) {
+  debug('Validate TestRuns')
+  var errors = testisticController.validateTestRuns(req.body)
+  if (!errors || errors.length === 0) {
+   next()
+  } else {
+    debug('Validation errors not recording')
+    debug(errors)
+   res.send(errors)
+  }
+}
+
+function createTestRuns (req, res) {
+  debug('createTestRun')
+  res.send(testisticController.createTestRuns(req.body))
+}
+
 function createTestRun (req, res) {
+  debug('createTestRuns')
   res.send(testisticController.createTestRun(req.body))
 }
 
 function validateTestRun (req, res, next) {
+  debug('Validate TestRuns')
   var errors = testisticController.validateTestRun(req.body)
   // console.log(errors)
   if (!errors || errors.length === 0) {
    next()
   } else {
+    debug('Validation errors not recording')
+    debug(errors)
    res.send(errors)
   }
 }
@@ -55,7 +76,8 @@ function setup (app, testistic/* controller */, authentication/* controller */, 
   )
 
   app.post('/testinstances', validateTestRun, createTestRun)
-  app.post('/testruns', validateTestRun, createTestRun)
+  app.post('/testruns', validateTestRuns, createTestRuns)
+  app.post('/testrun', validateTestRun, createTestRun)
   app.get('/testruns', async (req, res) => {
       let result = await testisticController.getTestRuns()
       res.send(result)

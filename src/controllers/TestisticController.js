@@ -29,12 +29,20 @@ function create (repository) {
     },
 
     createTestRun: async function (testinstance) {
+      debug('createTestRun')
       var testrun = Testistic.TestRun.createFrom(testinstance)
       await repository.produceTestRun(testrun)
       debug('Created testrun into repository', testrun)
       return testrun
     },
+    createTestRuns: async function (testinstances) {
+      debug('createTestRuns')
+      return testinstances.map((testinstance)=>this.createTestRun(testinstance))
+    },
     validateTestRun: function (body) {
+      return Testistic.TestRun.validate([body])
+    },
+    validateTestRuns: function (body) {
       return Testistic.TestRun.validate(body)
     },
     getTestRuns: async function (epic) {

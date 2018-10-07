@@ -25,3 +25,7 @@ Provides endpoints to
 
 Set the environment variable to point to kafka 
 ```export KAFKASERVICE=192.168.1.108```
+
+## Release Notes
+
+[Release Note](./RELEASE.md)

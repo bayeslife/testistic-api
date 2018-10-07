@@ -1,13 +1,13 @@
 {
   "name": "testistic-api",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "API services to support test statistics presentation",
   "main": "index.js",
   "scripts": {
     "docker": "docker build -t gcr.io/testistic-216703/testistic-api .",
     "build": "rollup -c",
     "start:watch": "nodemon -w node_modules/testistic-base -w node_modules/testistic-repository  -w src -w -x 'npm run test && npm run lint && DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify src/index.js'",
-    "start": "DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify  -r source-map-support/register src/index.js",
+    "start": "DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository,testistic-model node -r reify  -r source-map-support/register src/index.js",
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "test": "mocha -r reify -r source-map-support/register 'src/**/*.spec.js'"
   },
@@ -20,7 +20,7 @@
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.1",
     "reify": "^0.16.4",
-    "testistic-repository": "^1.1.4"
+    "testistic-repository": "^1.1.5"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
