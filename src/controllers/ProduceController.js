@@ -1,5 +1,4 @@
 import Debug from 'debug'
-import { AssertionError } from 'assert';
 const debug = Debug('testistic-api')
 
 function create (repository) {
