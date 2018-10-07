@@ -20,3 +20,8 @@ Provides endpoints to
   - testruns
   - projecttestruns
   - defaults to read entities related to path
+
+## Configuration
+
+Set the environment variable to point to kafka 
+```export KAFKASERVICE=192.168.1.108```

@@ -1,6 +1,6 @@
 import entityLogic from './utilities/entity.js'
 import Debug from 'debug'
-const debug = Debug('testistic-repository')
+const debug = Debug('testistic-api')
 
 let testisticController
 let authenticationController
