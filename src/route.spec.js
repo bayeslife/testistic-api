@@ -1,4 +1,4 @@
-import routes from '../src/routes.js'
+import routes from './route.js'
 
 import assert from 'assert'
 
