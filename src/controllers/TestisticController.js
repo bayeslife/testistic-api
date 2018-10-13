@@ -37,7 +37,7 @@ function create (repository) {
     },
     createTestRuns: async function (testinstances) {
       debug('createTestRuns')
-      return testinstances.map((testinstance)=>this.createTestRun(testinstance))
+      return testinstances.map((testinstance) => this.createTestRun(testinstance))
     },
     validateTestRun: function (body) {
       return Testistic.TestRun.validate([body])

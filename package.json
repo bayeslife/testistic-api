@@ -8,7 +8,7 @@
     "build": "rollup -c",
     "start:watch": "nodemon -w node_modules/testistic-base -w node_modules/testistic-repository  -w src -w -x 'npm run test && npm run lint && DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository node -r reify src/index.js'",
     "start": "DEBUG=kafka-node:*,kafka-client,testistic-api,testistic-repository,testistic-model node -r reify  -r source-map-support/register src/index.js",
-    "lint": "./node_modules/.bin/eslint src/**/*.js",
+    "lint": "./node_modules/.bin/eslint --fix src/**/*.js",
     "test": "mocha -r reify -r source-map-support/register 'src/**/*.spec.js'"
   },
   "author": "phil@xceptionale.com",
