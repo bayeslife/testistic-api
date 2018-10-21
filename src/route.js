@@ -87,7 +87,13 @@ function setup (app, testistic/* controller */, authentication/* controller */, 
     res.send(result)
   })
 
+  
   app.post('/login', (req, res) => authenticationController.logIn(req, res))
+
+  app.get('/topics', async (req, res) => {
+    let result = await produceController.getTopics()
+    res.send(result)
+  })
 
   // catch all
   app.post(/.*/, function (req, res) {
@@ -104,7 +110,8 @@ function setup (app, testistic/* controller */, authentication/* controller */, 
   app.get(/.*/, async function (req, res) {
       var entityType = entityLogic.deriveType(req.path)
       debug(`${entityType}`)
-      var entities = await produceController.get(entityType)
+      debug(`${JSON.stringify(req.query)}`)
+      var entities = await produceController.get(entityType, req.query)
       res.send(entities)
   })
 }
