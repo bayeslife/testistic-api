@@ -1,7 +1,7 @@
 {
   "name": "testistic-api",
-  "version": "1.2.0",
-  "description": "API services to support test statistics presentation",
+  "version": "1.2.1",
+  "description": "API services to support test statistics capture and presentation",
   "main": "index.js",
   "scripts": {
     "docker": "docker build -t gcr.io/testistic-216703/testistic-api .",
